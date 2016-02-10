@@ -53,6 +53,7 @@ class Barracks
     if can_train_siege_engine?
       @gold -= 200
       @food -= 3
+      @lumber -= 60
       SiegeEngine.new
     end
   end

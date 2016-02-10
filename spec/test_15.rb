@@ -58,7 +58,12 @@ describe Barracks do
       expect(@barracks.food).to eq(77) # starts at 80
     end
 
-    it "produces a footman unit" do
+    it "costs 60 lumber" do
+      @barracks.train_siege_engine
+      expect(@barracks.lumber).to eq(440) # starts at 500
+    end
+
+    it "produces a siege unit" do
       siege_engine = @barracks.train_siege_engine
       expect(siege_engine).to be_an_instance_of(SiegeEngine)
     end
