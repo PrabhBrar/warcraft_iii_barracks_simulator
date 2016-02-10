@@ -9,6 +9,9 @@ class Footman < Unit
     super(60, 10)
   end
   
+  # Inflicts damage on the enemy unit equal to the attack_power of self.
+  # If the enemy is a building(Barracks) inflicts damage equal to half of the attack_power.
+  # Returns an Integer.
   def attack!(unit)
     if unit.instance_of?(Barracks)
       unit.damage((attack_power / 2).ceil)

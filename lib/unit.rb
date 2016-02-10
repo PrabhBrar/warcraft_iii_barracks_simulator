@@ -21,6 +21,8 @@ class Unit
     @health_points -= ap
   end
 
+  # Checks if the current unit is dead or not.
+  # Always returns a Boolean.
   def dead?
     health_points <= 0
   end

@@ -68,27 +68,27 @@ describe Barracks do
   describe "#can_train_siege_engine?" do
     it "returns true if there are enough resources to train a footman" do
       # now check to see if one is trainable
-      # can jump right to the test since barracks start off with enough gold and food to train multiple footmen
+      # can jump right to the test since barracks start off with enough gold, lumber and food to train multiple siege engine
       expect(@barracks.can_train_siege_engine?).to be_truthy
     end
 
     it "returns false if there isn't enough food" do
-      # Make the barracks believe it only has 1 food item left, even though it starts with 80
+      # Make the barracks believe it only has 2 food item left, even though it starts with 80
       # This is done by overwriting the `food` getter method
       expect(@barracks).to receive(:food).and_return(2)
       expect(@barracks.can_train_siege_engine?).to be_falsey
     end
 
     it "returns false if there isn't enough gold" do
-      # Make the barracks believe it only has 134 gold left, even though it starts with 1000
+      # Make the barracks believe it only has 199 gold left, even though it starts with 1000
       # This is done by overwriting the `gold` getter method
       expect(@barracks).to receive(:gold).and_return(199)
       expect(@barracks.can_train_siege_engine?).to be_falsey
     end
 
     it "returns false if there isn't enough lumber" do
-      # Make the barracks believe it only has 134 gold left, even though it starts with 1000
-      # This is done by overwriting the `gold` getter method
+      # Make the barracks believe it only has 59 lumber left, even though it starts with 500
+      # This is done by overwriting the `lumber` getter method
       expect(@barracks).to receive(:lumber).and_return(59)
       expect(@barracks.can_train_siege_engine?).to be_falsey
     end
