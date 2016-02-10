@@ -9,4 +9,12 @@ class Footman < Unit
     super(60, 10)
   end
   
+  def attack!(unit)
+    if unit.instance_of?(Barracks)
+      unit.damage((attack_power / 2).ceil)
+    else
+      super(unit)
+    end
+  end
+
 end
